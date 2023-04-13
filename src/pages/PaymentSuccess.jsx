@@ -4,7 +4,7 @@ import MainLayout from "../components/MainLayout";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 export default function PaymentSuccess() {
   return (
-    <MainLayout loggedIn={true}>
+    <MainLayout>
       <Box sx={{ textAlign: "center", my: 4, mx: "auto", maxWidth: "680px" }}>
         <CheckCircleOutlineIcon sx={{ fontSize: "4rem", color: "#718096" }} />
         <Typography

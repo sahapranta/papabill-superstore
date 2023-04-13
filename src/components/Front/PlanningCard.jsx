@@ -7,7 +7,7 @@ export default function PlanningCard(props) {
         p: 3,
         borderRadius: "10px",
         mr: 2,
-        width: "370px",
+        width: "300px",
       }}
     >
       <Typography variant="h6" sx={{ fontWeight: 400 }}>

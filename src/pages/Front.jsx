@@ -2,17 +2,19 @@ import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 
 import BookingCard from "../components/Front/BookingCard";
 import PlanningCard from "../components/Front/PlanningCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Hero from "../components/Front/Hero";
 import LocationCard from "../components/Front/LocationCard";
 import Appointment from "../components/Front/Appointment";
 import MainLayout from "../components/MainLayout";
-
+import { useSelector } from "react-redux";
+// rest of the code
 export default function Front() {
   const theme = useTheme();
   const notMobile = useMediaQuery(theme.breakpoints.up("sm"));
 
-  const [loggedIn, setLoggedIn] = useState(true);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
 
   const bookings = [
     {
@@ -37,10 +39,12 @@ export default function Front() {
       price: "Rp 1.350.00",
     },
   ];
+
   return (
-    <MainLayout loggedIn={loggedIn}>
+    <MainLayout >
       <Hero notMobile={notMobile} />
-      <Appointment />
+
+      {isLoggedIn ? <Appointment /> : null}
 
       <Typography variant="h4" sx={{ fontWeight: 700, my: 3 }}>
         Appointment booking

@@ -20,7 +20,6 @@ export default function Lesson() {
   const theme = useTheme();
   const notMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const navigate = useNavigate();
-  const [loggedIn, setloggedIn] = useState(true);
 
   const [purchaseModal, setPurchaseModal] = useState(false);
 
@@ -38,7 +37,7 @@ export default function Lesson() {
     "https://i.ibb.co/XxMrLt9/woman.jpg",
   ];
   return (
-    <MainLayout loggedIn={loggedIn}>
+    <MainLayout>
       <Typography
         component="div"
         variant="h4"

@@ -3,40 +3,28 @@ import {
   Button,
   Box,
   Typography,
-  Card,
   CardContent,
-  CardHeader,
   CardActions,
-  Snackbar,
   useTheme,
   TextField,
   FormControl,
 } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import AuthLayout from "../components/AuthLayout";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../store/authSlice";
 
 export default function Register() {
-  const [phone, setPhone] = useState("");
-  const [isActive, setActive] = useState(false);
-  const [openSnack, setSnack] = useState(false);
-  const [dialogOpen, setDialog] = useState(false);
-
-  const handleSubmit = () => {
-    if (isActive) {
-      setSnack(true);
-      setDialog(true);
-    }
-  };
-  const dialogClose = () => {
-    setDialog(false);
-  };
-
-  const closeSnack = () => {
-    setSnack(false);
-  };
-
   const theme = useTheme();
   const notMobile = useMediaQuery(theme.breakpoints.up("sm"));
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const register = () => {
+    dispatch(login());
+    navigate("/");
+  };
 
   return (
     <AuthLayout title="Login or create your account">
@@ -82,6 +70,7 @@ export default function Register() {
           variant="contained"
           color="primary"
           sx={{ textTransform: "capitalize" }}
+          onClick={register}
         >
           Register
         </Button>
