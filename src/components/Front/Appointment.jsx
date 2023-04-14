@@ -137,12 +137,12 @@ export default function Appointment(props) {
             sx={{
               borderRadius: "15px",
               p: 2,
-              my: 2,
-              height: notMobile ? "120px" : "auto",
+              my: 2
             }}
           >
             <Stack
               direction={{ xs: "column", sm: "row" }}
+              spacing={2}
               sx={{
                 justifyContent: "space-between",
                 alignItems: notMobile ? "center" : "start",
