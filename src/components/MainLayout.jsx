@@ -3,6 +3,7 @@ import Topbar from "./Topbar";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/authSlice";
+import { ScrollRestoration } from "react-router-dom";
 
 export default function MainLayout(props) {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -57,6 +58,7 @@ export default function MainLayout(props) {
       <Container component="main" sx={{ maxWidth: "1280px" }}>
         {props.children}
       </Container>
+      <ScrollRestoration />
     </Box>
   );
 }
